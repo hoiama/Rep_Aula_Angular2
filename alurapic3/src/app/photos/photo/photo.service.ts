@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Photo} from './photo';
 
@@ -8,7 +8,9 @@ const API = 'http://localhost:3000';
 export class PhotoService {
 
   constructor(public http: HttpClient) { }
-  UserList(user: string) {
-   return this.http.get<Photo>(API + '/' +  user + '/photos');
+
+  UserList(user: string, page: number) {
+    const params: HttpParams = new HttpParams().append('page', page.toString());
+   return this.http.get<Photo>(API + '/' +  user + '/photos', {params});
   }
 }
