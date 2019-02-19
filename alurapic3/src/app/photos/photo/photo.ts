@@ -1,3 +1,5 @@
+/** Aqui temos a representação de uma classe para modelar um objphotoListeto criado a partir dela.**/
+
 export interface Photo {
   id: number;
   userId: number;

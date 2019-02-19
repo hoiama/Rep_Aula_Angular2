@@ -1,10 +1,17 @@
+<!--Este elemento recebe a lista de fotos do 'service' e repassar para o componente <ap-photos> que estrutura as fotos.
+    Passando untamente o parametro do filtro que recebemos pelo usuário no Imput
+
+    o "filaFiltro.next()" é um subject que recebe um valor e repassa para quem estiver inscrito neste subject.
+    -->
+
 <div class="text-center mt-3 mb-3">
   <form>
     <input type="search"
            class="rounded"
            placeholder="search..."
-           (keyup)="filaFiltro.next($event.target.value)">
+           (keyup)="filaFiltroSubject.next($event.target.value)">
   </form>
 </div>
 
-<ap-photos [photos] = 'photosServer | filtroPorDescricao: filtro'></ap-photos>
+<ap-photos [photos] = "photosServer | filtroPorDescricao: filtro"></ap-photos>
+<ap-load-button [hasMore] = "hasMore"> </ap-load-button>

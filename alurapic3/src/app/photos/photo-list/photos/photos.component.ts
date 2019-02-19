@@ -1,17 +1,18 @@
 import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Photo} from '../../photo/photo';
 
+// ngOnChange: trás 'true' quando a propriedade do parametro é alrerada.
+
 @Component({
   selector: 'ap-photos',
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnChanges {
-
   @Input() photos: Photo[] = [];
-           arrayLinhas: any [] = [];
+  arrayLinhas: any[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.photos) {
